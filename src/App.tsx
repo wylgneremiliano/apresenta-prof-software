@@ -7,11 +7,10 @@ import musica from './assets/money_2.mp3'
 function App() {
   const [showDialog, setShowDialog] = useState(false);
   const [showDescontente, setShowDescontente] = useState(false);
-  const [controleDescontente, setControleDescontente] = useState(false);
   const [noButtonPos, setNoButtonPos] = useState<{ x: number; y: number } | null>(null)
 
   const handleNoMouseEnter = () => {
-    if (!showDescontente && !controleDescontente) {
+    if (!showDescontente ) {
       setShowDescontente(true)
     }
     const centerElement = document.getElementById('center')
@@ -27,15 +26,7 @@ function App() {
   }
 
 
-  useEffect(() => {
-    if (showDescontente && !controleDescontente) {
-      setControleDescontente(true)
-      setTimeout(() => {
-        setShowDescontente(false)
-      }, 5000)
-    }
 
-  }, [showDescontente, controleDescontente]);
 
   useEffect(() => {
     const audioElement = document.getElementById('background-music') as HTMLAudioElement | null
